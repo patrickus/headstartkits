@@ -1,8 +1,31 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+//Navbar changes
+.navbar-inverse .navbar-toggle {
+  border-color: #efe;
+  color: #efe;
+}
+//End Navbar changes
 
 body {
   padding-top: 50px;
+}
+.brand {
+  max-width: 100px;
+  margin-top: -7px;
 }
 
 .main-container {
@@ -16,5 +39,23 @@ body {
 }
 #search-box {
     width: 300px;
-    margin-top: 20px;
+}
+
+#search-box-mobile {
+  text-align: right;
+  position: relative;
+  float: right;
+  padding: 1px 12px;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-top: 8px;
+  width: 58%;
+}
+
+@media (max-width: 420px) {
+  #search-box-mobile {
+
+    width: 100%;
+  }
 }

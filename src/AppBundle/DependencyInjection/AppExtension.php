@@ -15,6 +15,5 @@ class AppExtension extends Extension
             $container,
             new FileLocator(__DIR__.'/../Resources/config')
         );
-        $loader->load('services.xml');
     }
 }

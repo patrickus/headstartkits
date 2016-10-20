@@ -42,6 +42,16 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+doctrine_mongodb:
+    connections:
+        default:
+            server: %mongo.server%
+            options: {}
+    default_database: %mongo.database%
+    document_managers:
+        default:
+            auto_mapping: true
+
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -63,6 +73,7 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+
 
 # Swiftmailer Configuration
 swiftmailer:
