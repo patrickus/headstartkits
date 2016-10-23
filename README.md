@@ -93,3 +93,14 @@ or
     <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
 
 And in dev mode Symfony will load these assets from `http://localhost:8080`.
+
+
+run these first
+================
+composer install
+npm install
+
+this command adds database and tables based on entities
+================================================
+
+php bin/console doctrine:schema:update --force
