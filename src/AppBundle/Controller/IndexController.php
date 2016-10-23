@@ -16,10 +16,10 @@ class IndexController extends Controller
     {
         $serializer = $this->get('serializer');
         $repository = $this->get('doctrine_mongodb')->getRepository('AppBundle:Kit');
-        $kits = $repository->findBy(['default' => 'true']);
+        $headerKits = $repository->findBy(['default' => true]);
         $serializer = $this->get('serializer');
         return $this->render('hsk/home.html.twig',
-            ['props' => $serializer->serialize($kits, 'json')]);
+            ['props' => $serializer->serialize($headerKits, 'json')]);
         /*return $this->render('hsk/home.html.twig', [
             'props' => $serializer->normalize(
                 [
