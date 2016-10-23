@@ -1,6 +1,15 @@
 Head Start Kits
 =====================
 
+
+Run These First
+================
+
+composer install
+
+npm install
+
+
 How to run it
 =============
 
@@ -94,11 +103,6 @@ or
 
 And in dev mode Symfony will load these assets from `http://localhost:8080`.
 
-
-run these first
-================
-composer install
-npm install
 
 this command adds database and tables based on entities
 ================================================
