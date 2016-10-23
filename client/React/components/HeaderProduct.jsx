@@ -6,10 +6,11 @@ export default class HeaderProduct extends React.Component {
     }
 
     render() {
-        var imgsrc = 'http://freewebsitepics.staging.labeffect.com/wp-content/uploads/photo-gallery/thumb/IMG_7020.jpg';
+        var imgSrc = 'http://freewebsitepics.staging.labeffect.com/wp-content/uploads/photo-gallery/thumb/IMG_7020.jpg';
+        this.props.product.image ? imgSrc = this.props.product.image : null;
         return (
             <div className="col-md-4 col-xs-12">
-                <img src={imgsrc} className="img-responsive"/>
+                <img src={imgSrc} className="img-responsive"/>
                 <h4>{this.props.product.name}
                     <div className="pull-right"
                          dangerouslySetInnerHTML={{__html: this.props.product.price}}>

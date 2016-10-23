@@ -27,27 +27,6 @@ class AdminController extends Controller
         $serializer = $this->get('serializer');
         return $this->render('admin/products.html.twig', $serializer->normalize(
             ['products' => $kits]));
-
-        /*if ($request->isMethod('post')) {
-            $promotion = $request->request->get('create_product');
-            $product->setName('Keyboard');
-            $product->setPrice(19.99);
-            $product->setSalePrice(15.99);
-            $product->setDescription('Ergonomic and stylish!');
-            $product->setImages([]);
-            $product->setQuantityAvailable(20);
-            $product->setNumberSold(20);
-            $product->setTags([]);
-        }
-
-        $em = $this->getDoctrine()->getManager();
-
-        // tells Doctrine you want to (eventually) save the Product (no queries yet)
-        $em->persist($product);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $em->flush();*/
-        //return new Response('Saved new product with id '.$product->getId());
     }
 
     /**
@@ -56,9 +35,10 @@ class AdminController extends Controller
      */
     public function createKitAction(Request $request)
     {
+
         $kit = new Kit();
 
-        $kit->setName('Puppy Pack');
+        $kit->setName('Default Pack');
         $kit->setDescription('Ergonomic and stylish!');
         $kit->setPrice(19.99);
         $kit->setSalePrice(15.99);
@@ -141,5 +121,53 @@ class AdminController extends Controller
         return new Response('Added all Categories ');
     }
 
+    /**
+     * @Route("/admin/default-kits")
+     *
+     */
+    public function defaultKitsAction(Request $request)
+    {
+        $dm  = $this->get('doctrine_mongodb')->getManager();
+        $kit = new Kit();
+
+        $kit->setName('Puppy Pack');
+        $kit->setDescription('Everything needed as a new puppy owner!');
+        $kit->setPrice(19.99);
+        $kit->setSalePrice(15.99);
+        $kit->setDefault(true);
+        $kit->setImage('http://freewebsitepics.staging.labeffect.com/wp-content/uploads/photo-gallery/thumb/IMG_1589.jpg');
+        $dm->persist($kit);
+
+        $kit = new Kit();
+        $kit->setName('Kitten Kit');
+        $kit->setDescription('Meow! get this pack to start your kitten\'s new life!');
+        $kit->setPrice(19.99);
+        $kit->setSalePrice(15.99);
+        $kit->setDefault(true);
+        $kit->setImage('http://freewebsitepics.staging.labeffect.com/wp-content/uploads/photo-gallery/thumb/IMG_1687.jpg');
+        $dm->persist($kit);
+
+        $kit = new Kit();
+        $kit->setName('College Starter');
+        $kit->setDescription('What Every new college student needs!');
+        $kit->setPrice(19.99);
+        $kit->setSalePrice(15.99);
+        $kit->setDefault(true);
+        $kit->setImage('http://freewebsitepics.staging.labeffect.com/wp-content/uploads/photo-gallery/thumb/IMG_1674.jpg');
+        $dm->persist($kit);
+
+        $kit = new Kit();
+        $kit->setName('Snowboard Kit');
+        $kit->setDescription('Get Snowboarding without having to shop around!');
+        $kit->setPrice(19.99);
+        $kit->setSalePrice(15.99);
+        $kit->setDefault(false);
+        $kit->setImage('http://freewebsitepics.staging.labeffect.com/wp-content/uploads/photo-gallery/thumb/IMG_1603.PNG');
+        $dm->persist($kit);
+
+        $dm->flush();
+
+        return new Response('Added default kits for testing');
+    }
 
 }

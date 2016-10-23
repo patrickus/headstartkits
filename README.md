@@ -108,3 +108,8 @@ this command adds database and tables based on entities
 ================================================
 
 php bin/console doctrine:schema:update --force
+
+to insert some default kits
+================================================
+
+http://localhost:8000/admin/default-kits
