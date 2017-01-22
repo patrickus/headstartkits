@@ -109,7 +109,7 @@ class AdminController extends Controller
     public function addCategoriesAction(Request $request)
     {
         $repository = $this->get('doctrine_mongodb')->getRepository('AppBundle:Category');
-        $categoryNames = ['Pets', 'Student', 'Kids', 'Sports', 'Beauty', 'Outdoors'];
+        $categoryNames = ['Pets', 'Student', 'Kids', 'Sports', 'Beauty', 'Outdoors', 'Gifts'];
         foreach($categoryNames as $key){
             $category    = new Category();
             $category->setName($key);

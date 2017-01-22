@@ -7,10 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="icon" href="{{asset('favicon.ico')}}">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Head Start Kits</title>
     {% block stylesheets %}
         <link href="{{asset('assets/build/stylesheets/main.css', 'webpack')}}" rel="stylesheet">
@@ -36,10 +33,6 @@
     </div>
 
 </div>
-<div class="row" style="margin-bottom: 800px;">
-    adding space at bottom
-</div>
-
 
 {% block javascripts %}
     <script>
@@ -51,5 +44,6 @@
     {% endif %}
     <script src="{{ asset('assets/build/client-bundle.js', 'webpack') }}"></script>
 {% endblock %}
+{{ react_component('GlobalFunctions') }}
 </body>
 </html>

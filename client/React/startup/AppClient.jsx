@@ -2,6 +2,7 @@ require('../../sass/layout.scss');
 
 import ReactDOM from 'react-dom';
 import React from 'react';
+import GlobalFunctions from '../components/GlobalFunctions';
 
 import { Router, Route, browserHistory } from 'react-router'
 

@@ -22,7 +22,7 @@ class ProductType extends AbstractType
         $choices = [];
         foreach ($options['data'] as $option) {
             foreach ($option as $kit) {
-                $choices[$kit->getId()] = $kit->getId() . ' - ' . $kit->getName();
+                $choices[$kit->getId() . ' - ' . $kit->getName()] = $kit->getId();
             }
         }
 

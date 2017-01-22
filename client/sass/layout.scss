@@ -1,5 +1,7 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+$fa-font-path:"~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
 @-moz-keyframes spin {
   from { -moz-transform: rotate(0deg); }
   to { -moz-transform: rotate(360deg); }
@@ -52,6 +54,37 @@ body {
   margin-top: 8px;
   width: 58%;
 }
+
+.category-box {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 10px;
+  width: 220px;
+}
+#header-product {
+  //height: 400px;
+}
+#header-product .description{
+  min-height: 40px;
+}
+
+.green-btn {
+  background: #4f805d!important;
+  margin: 1px;
+}
+.product-image {
+  max-height:230px;
+}
+
+.bottom-buffer {
+  margin-bottom: 20px;
+}
+/*#header-product:hover {
+  border: 1px solid red;
+  border-radius: 5px;
+  background: #efefef;
+  min-height:377px;
+}*/
 
 @media (max-width: 420px) {
   #search-box-mobile {

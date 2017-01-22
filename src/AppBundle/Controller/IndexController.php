@@ -17,19 +17,16 @@ class IndexController extends Controller
         $serializer = $this->get('serializer');
         $repository = $this->get('doctrine_mongodb')->getRepository('AppBundle:Kit');
         $headerKits = $repository->findBy(['default' => true]);
-        $serializer = $this->get('serializer');
+        $products   = $repository->findAll();
+        $repository = $this->get('doctrine_mongodb')->getRepository('AppBundle:Category');
+        $categories = $repository->findAll();
+
         return $this->render('hsk/home.html.twig',
-            ['props' => $serializer->serialize($headerKits, 'json')]);
-        /*return $this->render('hsk/home.html.twig', [
-            'props' => $serializer->normalize(
-                [
-                    'name'     => 'Puppy Pack',
-                    'desc'     => 'buy this thing its really cool and will help you with stuff',
-                    'price'    => '350.<sup>95</sup>',
-                    'baseUrl'  => $this->generateUrl('homepage'),
-                    'location' => $request->getRequestUri()
-                ]
-            )
-        ]);*/
+            [
+                'props'      => $serializer->serialize($headerKits, 'json'),
+                'categories' => $serializer->serialize($categories, 'json'),
+                'products'   => $serializer->serialize($products, 'json'),
+            ]
+        );
     }
 }

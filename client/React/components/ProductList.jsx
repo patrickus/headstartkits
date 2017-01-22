@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Product from '../components/Product';
-import HeaderProduct from '../components/HeaderProduct';
+import ProductItem from '../components/ProductItem';
 import { Link } from 'react-router';
 import _ from 'lodash';
 import $ from 'jquery';
@@ -21,25 +21,23 @@ export default class ProductList extends React.Component {
         this.setState({filterText: this.filterTextInput.value});
     }
 
-
+    testJquery() {
+        $('#product').addClass('danger');
+    }
 
     render() {
         let products = [];
         let itemKeys = Object.keys(this.props);
-        /*for (let key in itemKeys) {
-            products =  <HeaderProduct product={this.props[key]} />
-        }*/
-        //console.log(products);
         products = itemKeys.map((key, idx)  => {
             return (
                 <div key={key}>
-                    <HeaderProduct product={this.props[key]} />
+                    <ProductItem product={this.props[key]} />
                 </div>
             );
         });
-        //$('.testthing').addClass('danger');
+
         return (
-            <div id="testthing">
+            <div onClick={this.testJquery} id="product">
                 {products}
             </div>
         );

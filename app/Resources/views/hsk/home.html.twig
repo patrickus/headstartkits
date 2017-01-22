@@ -2,15 +2,13 @@
 
 {% block body %}
     <div class="row">
-        {{ react_component('ProductList', {'props': props}) }}
-    </div>
-    <div class="row">
         <h1 class="text-center" style="font-family: 'Lato'; font-size: 48px;">Head Start Kits</h1>
         <hr style="width:70%">
     </div>
-    <div class="text-center">
-        <i style="animation: spin 4s linear infinite; margin-right:10px;" class="fa fa-circle-o-notch" aria-hidden="true"></i>
-        <i style="animation: spin 4s linear infinite; margin-right:10px;" class="fa fa-circle-o-notch" aria-hidden="true"></i>
-        <i style="animation: spin 4s linear infinite;" class="fa fa-circle-o-notch" aria-hidden="true"></i>
+    <div class="row">
+        {{ react_component('CategoryList', {'props': categories}) }}
+    </div>
+    <div class="row">
+        {{ react_component('ProductList', {'props': products}, {'layout': 'products'}) }}
     </div>
 {% endblock %}
